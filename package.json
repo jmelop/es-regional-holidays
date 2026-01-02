@@ -1,0 +1,34 @@
+{
+  "name": "es-regional-holidays",
+  "version": "0.1.0",
+  "description": "A JavaScript library to get public holidays in Spain by region.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmelop/es-regional-holidays.git"
+  },
+  "keywords": [
+    "españa",
+    "festivos",
+    "calendario-laboral",
+    "dias-no-laborables",
+    "festivos-autonomicos",
+    "boe",
+    "holidays",
+    "public-holidays",
+    "calendar"
+  ],
+  "author": "jmelop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmelop/es-regional-holidays/issues"
+  },
+  "homepage": "https://github.com/jmelop/es-regional-holidays#readme",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
