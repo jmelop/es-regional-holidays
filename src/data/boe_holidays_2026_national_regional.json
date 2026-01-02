@@ -1,0 +1,584 @@
+{
+  "source": "BOE-A-2025-21667",
+  "year": 2026,
+  "generated_at": "2026-01-02T21:40:46Z",
+  "national": [
+    {
+      "date": "2026-01-01",
+      "name": "Año Nuevo",
+      "scope": "national"
+    },
+    {
+      "date": "2026-04-03",
+      "name": "Viernes Santo",
+      "scope": "national"
+    },
+    {
+      "date": "2026-05-01",
+      "name": "Fiesta del Trabajo",
+      "scope": "national"
+    },
+    {
+      "date": "2026-08-15",
+      "name": "Asunción de la Virgen",
+      "scope": "national"
+    },
+    {
+      "date": "2026-10-12",
+      "name": "Fiesta Nacional de España",
+      "scope": "national"
+    },
+    {
+      "date": "2026-12-08",
+      "name": "Inmaculada Concepción",
+      "scope": "national"
+    },
+    {
+      "date": "2026-12-25",
+      "name": "Natividad del Señor",
+      "scope": "national"
+    }
+  ],
+  "regions": {
+    "AN": {
+      "regionName": "Andalucía",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-02-28",
+          "name": "Día de Andalucía",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "AR": {
+      "regionName": "Aragón",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-23",
+          "name": "San Jorge/Día de Aragón",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "AS": {
+      "regionName": "Asturias",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-09-08",
+          "name": "Día de Asturias",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "CB": {
+      "regionName": "Cantabria",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-07-28",
+          "name": "Día de las Instituciones de Cantabria",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-09-15",
+          "name": "La Bien Aparecida",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "CE": {
+      "regionName": "Ciudad de Ceuta",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-05-27",
+          "name": "Fiesta Sacrificio-Eidul Adha",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-08-05",
+          "name": "Nuestra Señora de África",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-09-02",
+          "name": "Día de Ceuta",
+          "scope": "regional"
+        }
+      ]
+    },
+    "CL": {
+      "regionName": "Castilla y León",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-23",
+          "name": "Fiesta de Castilla y León",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "CM": {
+      "regionName": "Castilla-La Mancha",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-06-04",
+          "name": "Corpus Christi",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        }
+      ]
+    },
+    "CN": {
+      "regionName": "Canarias",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-05-30",
+          "name": "Día de Canarias",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        }
+      ]
+    },
+    "CT": {
+      "regionName": "Cataluña",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-09-11",
+          "name": "Fiesta Nacional de Cataluña",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-26",
+          "name": "San Esteban",
+          "scope": "regional"
+        }
+      ]
+    },
+    "EX": {
+      "regionName": "Extremadura",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-09-08",
+          "name": "Día de Extremadura",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "GA": {
+      "regionName": "Galicia",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-19",
+          "name": "San José",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-07-25",
+          "name": "Santiago Apóstol/Día Nacional de Galicia",
+          "scope": "regional"
+        }
+      ]
+    },
+    "IB": {
+      "regionName": "Illes Balears",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-02",
+          "name": "Lunes siguiente al Día de les Illes Balears",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-26",
+          "name": "San Esteban",
+          "scope": "regional"
+        }
+      ]
+    },
+    "MC": {
+      "regionName": "Región Murcia",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-19",
+          "name": "San José",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "MD": {
+      "regionName": "Com. Madrid",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-05-02",
+          "name": "Fiesta de la Comunidad de Madrid",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "ML": {
+      "regionName": "Ciudad de Melilla",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-20",
+          "name": "Fiesta del Eid Fitr",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-05-27",
+          "name": "Fiesta Sacrificio-Aid al Adha",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "NC": {
+      "regionName": "C. Foral Navarra",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-19",
+          "name": "San José",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-11-02",
+          "name": "Día siguiente a Todos los Santos",
+          "scope": "regional"
+        }
+      ]
+    },
+    "PV": {
+      "regionName": "País Vasco",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-19",
+          "name": "San José",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-07-25",
+          "name": "Santiago Apóstol/Día Nacional de Galicia",
+          "scope": "regional"
+        }
+      ]
+    },
+    "RI": {
+      "regionName": "La Rioja",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-02",
+          "name": "Jueves Santo",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-12-07",
+          "name": "Lunes siguiente al Día de la Constitución Española",
+          "scope": "regional"
+        }
+      ]
+    },
+    "VC": {
+      "regionName": "Comunitat Valenciana",
+      "regional": [
+        {
+          "date": "2026-01-06",
+          "name": "Epifanía del Señor",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-03-19",
+          "name": "San José",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-04-06",
+          "name": "Lunes de Pascua",
+          "scope": "regional"
+        },
+        {
+          "date": "2026-10-09",
+          "name": "Día de la Comunitat Valenciana",
+          "scope": "regional"
+        }
+      ]
+    }
+  }
+}
