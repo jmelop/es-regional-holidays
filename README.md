@@ -102,14 +102,14 @@ export interface Holiday {
 Holiday classification follows administrative practice, not just legal origin.
 
 In the BOE, holidays are marked as:
-- * National holiday, not substitutable
-- ** National holiday, substitutable by the autonomous community
-- *** Regional holiday
+- `*` National holiday, not substitutable
+- `**` National holiday, substitutable by the autonomous community
+- `***` Regional holiday
 
 In this library, holidays are classified as:
-- * -> national
-- ** -> regional
-- *** -> regional
+- `*` → national
+- `**` → regional
+- `***` → regional
 
 Some holidays are national in origin but managed by autonomous communities. To reflect real regional calendars, these holidays are exposed as regional in the API.
 
