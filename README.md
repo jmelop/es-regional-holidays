@@ -102,9 +102,9 @@ export interface Holiday {
 Holiday classification follows administrative practice, not just legal origin.
 
 In the BOE, holidays are marked as:
-- `*` National holiday, not substitutable
-- `**` National holiday, substitutable by the autonomous community
-- `***` Regional holiday
+- `*` -> National holiday, not substitutable
+- `**` -> National holiday, substitutable by the autonomous community
+- `***` -> Regional holiday
 
 In this library, holidays are classified as:
 - `*` -> national
