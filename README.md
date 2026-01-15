@@ -107,9 +107,9 @@ In the BOE, holidays are marked as:
 - `***` -> Regional holiday
 
 In this library, holidays are classified as:
-- `*` -> national
-- `**` -> regional
-- `***` -> regional
+- `*` -> National holiday
+- `**` -> Regional holiday
+- `***` -> Regional holiday
 
 Some holidays are national in origin but managed by autonomous communities. To reflect real regional calendars, these holidays are exposed as regional in the API.
 
