@@ -30,7 +30,7 @@ export interface ProvinceSource {
   localities: Record<string, HolidayEntry[]>;
 }
 
-/** Region source data (single source of truth) */
+/** Region source data */
 export interface RegionSource {
   regionName: string;
   regional: HolidayEntry[];
