@@ -1,46 +1,47 @@
 // src/types.ts
-export type RegionCode = | "AN" | "AR" | "AS" | "CB" | "CE" | "CL" | "CM" | "CN" | "CT" | "EX" | "GA" | "IB" | "MC" | "MD" | "ML" | "NC" | "PV" | "RI" | "VC";
 
-export type HolidayScope = "national" | "regional";
+export type RegionCode =
+  | "AN" | "AR" | "AS" | "CB" | "CE" | "CL" | "CM" | "CN" | "CT"
+  | "EX" | "GA" | "IB" | "MC" | "MD" | "ML" | "NC" | "PV" | "RI" | "VC";
 
+export type HolidayScope = "national" | "regional" | "local";
+
+/** Entry as stored in the source dataset */
+export interface HolidayEntry {
+  date: string; // YYYY-MM-DD
+  name: string;
+}
+
+/** Resolved holiday returned by the API */
 export interface Holiday {
-  /** ISO date: YYYY-MM-DD */
   date: string;
-  /** Holiday name in Spanish (as in BOE) */
   name: string;
-  /** Region code if scoped to a region (e.g. "CN"). */
-  region?: RegionCode;
-  /** Region name (e.g. "Canarias") */
-  regionName?: string;
-  /** "national" = common to all regions. "regional" = chosen/managed by the region. */
   scope: HolidayScope;
-  /** BOE id (useful for traceability) */
-  source?: string;
+
+  region?: RegionCode;
+  regionName?: string;
+
+  province?: string;
+  locality?: string;
 }
 
-export interface Region {
-  code: RegionCode;
-  name: string;
+/** Local holidays grouped by province */
+export interface ProvinceSource {
+  localities: Record<string, HolidayEntry[]>;
 }
 
+/** Region source data (single source of truth) */
+export interface RegionSource {
+  regionName: string;
+  regional: HolidayEntry[];
+  provinces?: Record<string, ProvinceSource>;
+}
+
+/** Source dataset for a given year */
 export interface HolidaysDataset {
-  source: string;
   year: number;
   generated_at?: string;
-  national: Array<{
-    date: string;
-    name: string;
-    scope: "national";
-  }>;
-  regions: Record<
-    RegionCode,
-    {
-      regionName: string;
-      regional: Array<{
-        date: string;
-        name: string;
-        scope: "regional";
-      }>;
-    }
-  >;
+
+  national: HolidayEntry[];
+  regions: Record<RegionCode, RegionSource>;
 }
