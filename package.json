@@ -1,6 +1,6 @@
 {
   "name": "es-regional-holidays",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A JavaScript/TypeScript library to get public holidays in Spain by region.",
   "author": "jmelop",
   "license": "MIT",
