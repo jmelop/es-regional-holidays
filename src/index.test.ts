@@ -3,80 +3,111 @@ import {
   getAllHolidays,
   getNationalHolidays,
   getRegionalHolidaysByRegionCode,
+  getLocalHolidaysByRegionCode,
+  getLocalHolidaysByProvince,
   getAllHolidaysByRegionCode,
   isHoliday,
+  isLocalHoliday,
   getAllRegions,
+  Holiday,
 } from "./index";
 
+const Y = 2026 as const;
+
+function isSorted<T>(items: T[], compare: (previous: T, current: T) => number): boolean {
+  for (let index = 1; index < items.length; index++) {
+    const previous = items[index - 1];
+    const current = items[index];
+
+    if (compare(previous, current) > 0) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function cmpHoliday(a: Holiday, b: Holiday) {
+  return (
+    a.date.localeCompare(b.date) ||
+    a.scope.localeCompare(b.scope) ||
+    a.name.localeCompare(b.name) ||
+    (a.region ?? "").localeCompare(b.region ?? "") ||
+    (a.province ?? "").localeCompare(b.province ?? "") ||
+    (a.locality ?? "").localeCompare(b.locality ?? "")
+  );
+}
+
 describe("es-regional-holidays (2026)", () => {
-  it("returns national holidays for 2026", () => {
-    const national = getNationalHolidays(2026);
+  it("national holidays exist and include Año Nuevo", () => {
+    const national = getNationalHolidays(Y);
 
     expect(national.length).toBeGreaterThan(0);
-    expect(national.every(h => h.scope === "national")).toBe(true);
-    expect(national.some(h => h.date === "2026-01-01" && h.name === "Año Nuevo")).toBe(true);
+    expect(national.every((h) => h.scope === "national")).toBe(true);
+    expect(national).toContainEqual({
+      date: "2026-01-01",
+      name: "Año Nuevo",
+      scope: "national",
+    });
   });
 
-  it("returns regional holidays for Canarias (CN)", () => {
-    const cn = getRegionalHolidaysByRegionCode("CN" as any, 2026);
+  it("regional holidays for CN include Día de Canarias", () => {
+    const cn = getRegionalHolidaysByRegionCode("CN" as any, Y);
 
     expect(cn.length).toBeGreaterThan(0);
-    expect(cn.every(h => h.scope === "regional")).toBe(true);
-    expect(cn.every(h => h.region === "CN")).toBe(true);
-    expect(cn.some(h => h.date === "2026-05-30" && h.name === "Día de Canarias")).toBe(true);
+    expect(cn.every((h) => h.scope === "regional" && h.region === "CN")).toBe(true);
+    expect(cn.some((h) => h.date === "2026-05-30" && h.name === "Día de Canarias")).toBe(true);
   });
 
-  it("materializes national + regional for Canarias (CN)", () => {
-    const cnAll = getAllHolidaysByRegionCode("CN" as any, 2026);
+  it("getAllHolidaysByRegionCode materializes national + regional (+ local)", () => {
+    const cnAll = getAllHolidaysByRegionCode("CN" as any, Y);
 
-    expect(cnAll.some(h => h.date === "2026-01-01" && h.scope === "national")).toBe(true);
-    expect(cnAll.some(h => h.date === "2026-05-30" && h.scope === "regional")).toBe(true);
+    expect(cnAll.some((h) => h.date === "2026-01-01" && h.scope === "national")).toBe(true);
+    expect(cnAll.some((h) => h.date === "2026-05-30" && h.scope === "regional")).toBe(true);
+    expect(cnAll.every((h) => ["national", "regional", "local"].includes(h.scope))).toBe(true);
   });
 
-  it("getAllHolidays returns a globally sorted list", () => {
-    const all = getAllHolidays(2026);
-    expect(all.length).toBeGreaterThan(0);
-
-    for (let i = 1; i < all.length; i++) {
-      const prev = all[i - 1];
-      const curr = all[i];
-
-      const byDate = prev.date.localeCompare(curr.date);
-      if (byDate < 0) continue;
-      if (byDate > 0) throw new Error("List is not sorted by date");
-
-      const byName = prev.name.localeCompare(curr.name);
-      if (byName < 0) continue;
-      if (byName > 0) throw new Error("List is not sorted by name for same date");
-
-      const byRegion = (prev.region ?? "").localeCompare(curr.region ?? "");
-      if (byRegion > 0) throw new Error("List is not sorted by region for same date and name");
+  it("local holidays APIs return well-shaped data (when available)", () => {
+    const cnLocal = getLocalHolidaysByRegionCode("CN" as any, Y);
+    expect(cnLocal.every((h) => h.scope === "local" && h.region === "CN")).toBe(true);
+    if (cnLocal.length) {
+      expect(cnLocal.some((h) => h.province && h.locality)).toBe(true);
     }
+
+    const vcValencia = getLocalHolidaysByProvince("VC" as any, "Valencia", Y);
+    expect(vcValencia.every((h) => h.scope === "local" && h.region === "VC" && h.province === "Valencia")).toBe(true);
   });
 
-  it("isHoliday works with string and with Date", () => {
-    expect(isHoliday("2026-01-01", "CN" as any, 2026)).toBe(true);
-    expect(isHoliday("2026-05-30", "CN" as any, 2026)).toBe(true);
+  it("isHoliday works (string + Date) and without region checks only national", () => {
+    expect(isHoliday("2026-01-01", "CN" as any, Y)).toBe(true);
+    expect(isHoliday(new Date(2026, 0, 1), "CN" as any, Y)).toBe(true);
 
-    expect(isHoliday(new Date(2026, 0, 1), "CN" as any, 2026)).toBe(true);
+    expect(isHoliday("2026-01-01", undefined, Y)).toBe(true);
+    expect(isHoliday("2026-05-30", undefined, Y)).toBe(false);
   });
 
-  it("isHoliday without region checks only national holidays", () => {
-    expect(isHoliday("2026-01-01", undefined, 2026)).toBe(true);
-    expect(isHoliday("2026-05-30", undefined, 2026)).toBe(false);
+  it("isLocalHoliday returns false for unknown province/locality", () => {
+    expect(isLocalHoliday("2026-01-01", "VC" as any, "NOPE", "NOPE", Y)).toBe(false);
   });
 
-  it("getAllRegions includes CN and MD", () => {
-    const regions = getAllRegions(2026);
+  it("getAllHolidays and getAllRegions look sane", () => {
+    const all = getAllHolidays(Y);
+    expect(all.length).toBeGreaterThan(0);
+    expect(isSorted(all, cmpHoliday)).toBe(true);
 
-    expect(regions.includes("CN" as any)).toBe(true);
-    expect(regions.includes("MD" as any)).toBe(true);
+    const regions = getAllRegions(Y);
+    expect(regions).toEqual([...regions].sort());
+    expect(regions).toContain("CN" as any);
+    expect(regions).toContain("MD" as any);
   });
 
   it("unsupported years return empty arrays / false", () => {
-    expect(getAllHolidays(1900).length).toBe(0);
-    expect(getNationalHolidays(1900).length).toBe(0);
-    expect(getRegionalHolidaysByRegionCode("CN" as any, 1900).length).toBe(0);
+    expect(getAllHolidays(1900)).toEqual([]);
+    expect(getNationalHolidays(1900)).toEqual([]);
+    expect(getRegionalHolidaysByRegionCode("CN" as any, 1900)).toEqual([]);
+    expect(getLocalHolidaysByRegionCode("CN" as any, 1900)).toEqual([]);
+    expect(getLocalHolidaysByProvince("VC" as any, "Valencia", 1900)).toEqual([]);
     expect(isHoliday("2026-01-01", "CN" as any, 1900)).toBe(false);
+    expect(isLocalHoliday("2026-01-22", "VC" as any, "Valencia", "VALENCIA", 1900)).toBe(false);
   });
 });

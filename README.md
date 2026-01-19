@@ -1,16 +1,17 @@
 # es-regional-holidays
 
-es-regional-holidays is a lightweight, TypeScript-first library that provides official public holidays in Spain by year and autonomous community, based on data published in the Boletín Oficial del Estado (BOE).
+es-regional-holidays is a lightweight, TypeScript-first library that provides official public holidays in Spain by year and autonomous community, with optional support for local (municipal) holidays.
 
-The library is framework-agnostic and can be used with React, Angular, Vue, or plain Node.js projects.
+It is framework-agnostic and works with React, Angular, Vue, and plain Node.js.
 
 ## Features
 
-- Official holiday data sourced from the BOE
-- Clear distinction between national and regional holidays
-- Zero runtime dependencies
+- National, regional, and local (municipal) holidays
+- Single normalized dataset per year
+- Optional province and locality-level data
 - Fully typed with TypeScript
 - Compatible with modern bundlers (ESM and CJS)
+- Zero runtime dependencies
 
 ## Installation
 
@@ -25,11 +26,11 @@ yarn add es-regional-holidays
 Using pnpm:
 pnpm add es-regional-holidays
 
-## Basic usage
+## Usage
 
 ### Get all holidays for a region
 
-Returns all applicable holidays for a given region and year, including national common holidays and region-managed holidays.
+Returns **national + regional + local** holidays for a region and year.
 
 ```ts
 import { getAllHolidaysByRegionCode } from "es-regional-holidays";
@@ -47,53 +48,71 @@ Example result:
 ]
 ```
 
-## Check if a date is a holiday
-
-```ts
-import { isHoliday } from "es-regional-holidays";
-
-isHoliday("2026-05-30", "CN");
-isHoliday("2026-05-30", "MD");
-```
-
-The function accepts both YYYY-MM-DD strings and Date objects.
-
-## National holidays only
+### National holidays only
 
 ```ts
 import { getNationalHolidays } from "es-regional-holidays";
 
-const nationalHolidays = getNationalHolidays(2026);
+const national = getNationalHolidays(2026);
 ```
 
-## Regional holidays only
+### Regional holidays only
 
 ```ts
 import { getRegionalHolidaysByRegionCode } from "es-regional-holidays";
 
-const regionalHolidays = getRegionalHolidaysByRegionCode("MD", 2026);
+const regional = getRegionalHolidaysByRegionCode("MD", 2026);
 ```
 
-## List supported regions
+### Local (municipal) holidays
 
 ```ts
-import { getRegions } from "es-regional-holidays";
+import { getLocalHolidaysByProvince } from "es-regional-holidays";
 
-const regions = getRegions();
+const valenciaLocal = getLocalHolidaysByProvince("VC", "Valencia", 2026);
 ```
 
-Region codes follow the official BOE abbreviations.
+### Check if a date is a holiday
 
-## Holiday data model
+```ts
+import { isHoliday } from "es-regional-holidays";
+
+isHoliday("2026-01-01");           // true (national)
+isHoliday("2026-05-30", "CN");     // true (regional)
+isHoliday("2026-05-30", "MD");     // false
+```
+
+Accepts both `YYYY-MM-DD` strings and `Date` objects.
+
+### Check local holidays only
+
+```ts
+import { isLocalHoliday } from "es-regional-holidays";
+
+isLocalHoliday("2026-01-22", "VC", "Valencia", "VALENCIA");
+```
+
+### List supported regions
+
+```ts
+import { getAllRegions } from "es-regional-holidays";
+
+const regions = getAllRegions(2026);
+```
+
+Region codes follow official BOE abbreviations.
+
+## Data model
 
 ```ts
 export interface Holiday {
   date: string;
   name: string;
+  scope: "national" | "regional" | "local";
   region?: string;
   regionName?: string;
-  scope: "national" | "regional";
-  source?: string;
+  province?: string;
+  locality?: string;
 }
 ```
 
