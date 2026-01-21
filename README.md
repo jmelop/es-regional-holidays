@@ -116,28 +116,13 @@ export interface Holiday {
 }
 ```
 
-## National vs regional classification
+## Data sources
 
-Holiday classification follows administrative practice, not just legal origin.
+- **Primary source:** Spanish Social Security official calendars
+- **Secondary source:** BOE annual resolution (used for validation and consistency)
 
-In the BOE, holidays are marked as:
-- `*` -> National holiday, not substitutable
-- `**` -> National holiday, substitutable by the autonomous community
-- `***` -> Regional holiday
-
-In this library, holidays are classified as:
-- `*` -> National holiday
-- `**` -> Regional holiday
-- `***` -> Regional holiday
-
-Some holidays are national in origin but managed by autonomous communities. To reflect real regional calendars, these holidays are exposed as regional in the API.
-
-## Data source
-
-All holiday data is extracted from the official BOE resolution published each year.
-For example, BOE-A-2025-21667 for the year 2026.
-
-Raw BOE data is preserved internally for traceability and reproducibility.
+The Social Security dataset is treated as the **single source of truth**.
+BOE data is preserved internally to cross-check and ensure correctness.
 
 ## Supported years
 
